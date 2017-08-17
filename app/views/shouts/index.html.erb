@@ -5,7 +5,10 @@
 <% @shouts.each do |shout| %>
 	<div class="panel panel-default">
 		<div class="panel-body">
-			 <%= shout.content %>
+			<%= shout.content %> 
+		</div>
+		<div class="panel-footer">
+			sent by <%= shout.user.email %>
 		</div>
 	</div>
 <% end %>
@@ -13,3 +16,5 @@
 <br>
 
 <%= link_to 'New Shout', new_shout_path %>
+
+

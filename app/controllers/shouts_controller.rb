@@ -1,5 +1,8 @@
 class ShoutsController < ApplicationController
   before_action :set_shout, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+	
+	#	respond_to :html
 
   # GET /shouts
   # GET /shouts.json
@@ -25,6 +28,8 @@ class ShoutsController < ApplicationController
   # POST /shouts.json
   def create
     @shout = Shout.new(shout_params)
+		# only logged in user can create shouts
+    @shout.user_id = current_user.id
 
     respond_to do |format|
       if @shout.save
