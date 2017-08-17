@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Shouts</h1>
+<h1>Latest Shouts</h1>
 
 <% @shouts.each do |shout| %>
 	<div class="panel panel-default">
@@ -8,7 +8,7 @@
 			<%= shout.content %> 
 		</div>
 		<div class="panel-footer">
-			sent by <%= shout.user.email %>
+			sent by <%= shout.user.email %>, <%= shout.created_at.strftime("%b, %d, %Y") %>, at <%= shout.created_at.strftime("%I:%M%p") %>
 		</div>
 	</div>
 <% end %>
