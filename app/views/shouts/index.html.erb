@@ -2,26 +2,14 @@
 
 <h1>Shouts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @shouts.each do |shout| %>
-      <tr>
-        <td><%= shout.content %></td>
-        <td><%= link_to 'Show', shout %></td>
-        <td><%= link_to 'Edit', edit_shout_path(shout) %></td>
-        <td><%= link_to 'Destroy', shout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @shouts.each do |shout| %>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			 <%= shout.content %>
+		</div>
+	</div>
+<% end %>
+  
 <br>
 
 <%= link_to 'New Shout', new_shout_path %>
